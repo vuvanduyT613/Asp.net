@@ -5,7 +5,9 @@ Please create new branch
 
 Add a new remote for your branch :
 
-$ git remote add [name_of_your_remote] [name_of_your_new_branch]
+Create the branch on your local machine and switch in this branch :
+$ git checkout -b [name_of_your_new_branch]
+
 Push changes from your commit into your branch :
 
 $ git push [name_of_your_new_remote] [url]
