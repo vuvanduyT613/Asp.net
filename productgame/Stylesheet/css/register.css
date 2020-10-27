@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html, body {
+    background-color: #e6e6e6;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto-Condensed-Bold' !important;
+    font-size: 15px;
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+    margin: 0px;
+}
+
+.card-main{
+    width: 800px;
+    height: 700px;
+    margin: 30px 0px 0px 0px;
+    background-color: #fff;
+}
+
+#col-1 {
+    margin-top : 30px;
+}
+
+.mess-warning .fa-exclamation-circle {
+    color: #a94442 !important;
+}
+
+#col-2 {
+    margin-top: 30px;
+    border-left: 1px solid black;
+}
+
+.content-name h2{
+    font-family: 'Roboto-Condensed-Bold' !important;
+    font-weight: bold;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.tab-login-active {
+    border-bottom: 3px solid #21beff;
+    font-weight: bold;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.btn-submit-info {
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: #fff;
+}
+
+.btn-submit-info:hover{
+    color: #21beff;
+}
+
+.btn-aqua-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #21beff;
+    color: #fff;
+    padding: 8px 0;
+    cursor: pointer;
+    font-family: 'Roboto-Condensed-Bold';
+    background-color: #21beff;
+}
+
+.list-login a {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html, body {
+    background-color: #e6e6e6;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto-Condensed-Bold' !important;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+    margin: 100px;
+}
+
+.card-main{
+    width: 800px;
+    height: 580px;
+    margin: auto;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#col-1 {
+    margin-top : 30px;
+}
+
+#col-2 {
+    margin-top: 30px;
+    border-left: 1px solid black;
+    top: 0px;
+    left: 0px;
+}
+
+.content-name h2{
+    font-family: 'Roboto-Condensed-Bold' !important;
+    font-weight: bold;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.tab-login-active {
+    border-bottom: 3px solid #21beff;
+    font-weight: bold;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.btn-submit-info {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: #fff;
+}
+
+.btn-submit-info:hover{
+    width : 100%;
+    height : 100%;
+    color: #21beff;
+}
+
+.list-login a {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+
+}
+

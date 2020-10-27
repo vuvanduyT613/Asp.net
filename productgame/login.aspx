@@ -1,0 +1,103 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="productgame.stylesheet.Login" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Stylesheet/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="./Stylesheet/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./Stylesheet/icon-fonts/css/all.css"/>
+    <link rel="stylesheet" href="./Stylesheet/css/logins.css" />
+    <link rel="stylesheet" href="./Stylesheet/css/common.css">
+    <title>Login</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+          <div class="d-flex justify-content-center h-100" >
+            <div class="card-main">
+              <div class="row">
+                
+                <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6" id = "col-1">
+                  <div class="content-name">
+                    <h2>
+                      Đăng nhập
+                    </h2>
+                  </div>
+                  <p>
+                    Đăng nhập để theo dõi đơn hàng, lưu danh sách sản phẩm yêu thích, nhận nhiều ưu đãi hấp dẫn.
+                  </p>              
+                </div>            
+               
+                <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6" id = "col-2">
+                  <ul class="nav nav-tabs">
+                    <li class="tab-login-active">
+                      <asp:HyperLink ID="HyperLink3" runat="server" class="nav-link active" NavigateUrl="~/Login.aspx">Đăng nhập</asp:HyperLink>
+                    </li>
+                    <li class="tab-login">
+                      <asp:HyperLink ID="HyperLink4" runat="server" class="nav-link" NavigateUrl="~/Register.aspx">Đăng ký</asp:HyperLink>
+                    </li>
+                  </ul>
+               
+                  <div class="tab_login">
+                    <br>
+                    <asp:Panel ID="Panel1" runat="server">
+                        <asp:Label ID="Label1" runat="server" style="color : red ; font-weight : bold" ></asp:Label>
+                    </asp:Panel>
+                    <div></div>
+                    <div class="form-group login-container">
+                      <asp:Label ID="Label2" runat="server" Text="Địa chỉ email"></asp:Label>
+                                 
+                      <div class="input-group">
+                        <asp:TextBox ID="txt_email" runat="server" class="form-control input-popup-login" type="email" placeholder="Nhập địa chỉ Email"></asp:TextBox>
+                      </div>
+                    </div>
+                    <div class="form-group login-container">
+                      <label for="">Mật khẩu</label>
+                      <div class="input-group">
+                        <asp:TextBox ID="txt_pass" runat="server" class="form-control input-popup-login" type="password" placeholder="Mật khẩu" ></asp:TextBox>
+                      </div>
+                    </div>
+                    <p class="text-left"><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Home.aspx">Bạn quên mật khẩu?</asp:HyperLink></p>
+              
+                    <asp:Panel ID="Panel2" runat="server" class="btn btn-aqua-bg">
+                        <asp:Button ID="Button1" runat="server" class="btn-submit-info" Text="Đăng nhập" OnClick="btn_dangnhap_Click1" style="width:100% ; height:100%"/>
+                    </asp:Panel>
+                    <hr>
+
+                    <div class="other-login">
+                      <p>Hoặc đăng nhập thông qua MXH</p>
+                      <br>
+                      <div class="list-login">
+                        <asp:LinkButton ID="LinkButton1" runat="server"  class="login-fplus btn btn-info" 
+                            style ="background: #4267b2; border: #4267b2; margin: 0; padding-top: 13px;" OnClick="LinkButton1_Click">
+                            <span
+                            style="float: left;width: 48px;margin-left: -8px;border-right: 1px solid rgba(0, 0, 0, 0.2);">
+                            <i class="fab fa-facebook-f" style="font-size: 25px"></i>
+                            </span>
+                            Đăng nhập bằng Facebook
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton2" runat="server" class="login-gplus btn btn-danger" 
+                            style="background: #e02f2f; border: #e02f2f; margin: 15px 0 0 0; padding-top: 13px;" OnClick="LinkButton2_Click">
+                            <span
+                            style="float: left;border-right: 1px solid rgba(0, 0, 0, 0.2);width: 43px;margin-left: -3px;">
+                            <i class="fab fa-google-plus-g" style="font-size: 25px"></i>
+                            </span>
+                            Đăng nhập bằng Google
+                        </asp:LinkButton>
+                      </div>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+        </div>
+    </form>
+    <script src="./Stylesheet/js/jquery-3.5.1.min.js"></script>
+	<script src="./Stylesheet/js/bootstrap.min.js"></script>
+    <script src="./Stylesheet/icon-fonts/js/all.js"></script>
+</body>
+</html>
