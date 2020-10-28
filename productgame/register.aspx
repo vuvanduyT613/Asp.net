@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
     <link rel="stylesheet" href="./Stylesheet/css/register.css" />
     <link rel="stylesheet" href="./Stylesheet/css/common.css">
+    <script src="./Stylesheet/js/register.js" type="text/javascript"></script>
     <title>resgister</title>
 </head>
 <body>
@@ -38,7 +39,6 @@
                       <a class="nav-link active" href="./Register.aspx">Đăng ký</a>
                     </li>
                   </ul>
-                  <!-- <div class="alert alert-danger mess-warning text-left"><i class="fa fa-exclamation-circle"></i> </div> -->
                   <div class="tab_login">
                     <br>
                     <div class="form-group login-container">
@@ -65,34 +65,31 @@
                     <div class="form-group login-container">
                       <label for="input-telephone-register">Số điện thoại</label>
                       <div class="input-group">
-                        <asp:TextBox ID="txt_numberphone" runat="server" class="form-control input-popup-login" placeholder="Số điện thoại" type="text"></asp:TextBox>
+                        <asp:TextBox ID="txt_numberphone" runat="server" class="form-control input-popup-login" placeholder="Số điện thoại" type="text" ></asp:TextBox>
                       </div>
                     </div>
-
                     <div class="form-group login-container">
                       <label for="input-password-register">Mật khẩu</label>
                       <div class="input-group">
-                        <asp:TextBox ID="txt_password" runat="server" class="form-control input-popup-login" placeholder="Mật khẩu" type="password"></asp:TextBox>
+                        <asp:TextBox ID="txt_password" runat="server" class="form-control input-popup-login" placeholder="Mật khẩu" type="text"></asp:TextBox>
                       </div>
                     </div>
-
                     <div class="form-group login-container">
                       <label for="input-confirm-password">Nhập lại mật khẩu</label>
                       <div class="input-group">
-                        <asp:TextBox ID="txt_repassword" runat="server" class="form-control input-popup-login" placeholder="Nhập lại mật khẩu" type="password"></asp:TextBox>
+                        <asp:TextBox ID="txt_repassword" runat="server" class="form-control input-popup-login" placeholder="Nhập lại mật khẩu" type="password" ></asp:TextBox>
                       </div>
                     </div>
-
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                      <label class="custom-control-label" for="defaultUnchecked">Tôi đã đọc và đồng ý với 
+                      <asp:CheckBox ID="CheckBox1" runat="server" />
+                      <label>Tôi đã đọc và đồng ý với 
                         <a class="fancybox" href="" alt="Điều khoản dịch vụ">Điều khoản dịch vụ</a>                                                     
                       </label>
                     </div>
                     <br>
                     
                     <asp:Panel ID="Panel1" runat="server" class="btn btn-aqua-bg" >
-                        <asp:Button ID="Button1" runat="server" class="btn-submit-info" Text="Đăng Ký" type="button" style="width : 100% ; height : 100%"/>
+                        <asp:Button ID="Button1" runat="server" class="btn-submit-info" Text="Đăng Ký" type="button" style="width : 100% ; height : 100%" OnClick="Button1_Click1" OnClientClick="main()"/>
                     </asp:Panel>
                 </div>
               </div>

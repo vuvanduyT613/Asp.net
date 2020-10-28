@@ -61,10 +61,10 @@
                         <asp:TextBox ID="txt_pass" runat="server" class="form-control input-popup-login" type="password" placeholder="Mật khẩu" ></asp:TextBox>
                       </div>
                     </div>
-                    <p class="text-left"><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Home.aspx">Bạn quên mật khẩu?</asp:HyperLink></p>
+                    <p class="text-left"><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/forgotten.aspx">Bạn quên mật khẩu?</asp:HyperLink></p>
               
                     <asp:Panel ID="Panel2" runat="server" class="btn btn-aqua-bg">
-                        <asp:Button ID="Button1" runat="server" class="btn-submit-info" Text="Đăng nhập" OnClick="btn_dangnhap_Click1" style="width:100% ; height:100%"/>
+                        <asp:Button ID="Button1" runat="server"  class="btn-submit-info" Text="Đăng nhập" OnClick="btn_dangnhap_Click1" style="width:100% ; height:100%"/>
                     </asp:Panel>
                     <hr>
 

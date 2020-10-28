@@ -8,22 +8,31 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Security.Principal;
 using System.Web.Services.Description;
-using Facebook;
-using GoogleApi;
 using System.Web.Script.Serialization;
 using System.Security.Policy;
 using System.Configuration;
 using ASPSnippets.GoogleAPI;
 using ASPSnippets.FaceBookAPI;
+using GoogleApi.Exceptions;
 using System.EnterpriseServices;
 using System.Dynamic;
 using productgame.Class;
+
 
 namespace productgame.stylesheet
 {
     public partial class Login : System.Web.UI.Page
     {
         connection cn = new connection();
+        controlCookie ck = new controlCookie();
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            checkConect();
+            getApiGoogle();
+            getApiFacebook();
+        }
+
         public class FaceBookUser
         {
             public string Id { get; set; }
@@ -47,19 +56,6 @@ namespace productgame.stylesheet
             public string Type { get; set; }
         }
 
-        public class Image
-        {
-            public string Url { get; set; }
-        }
-
-        
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            checkConect();
-            getApiGoogle();
-            getApiFacebook();
-        }
-
         // logic login
         protected void checkLogin() {
             string email = this.txt_email.Text;
@@ -79,7 +75,7 @@ namespace productgame.stylesheet
 
             if (dt.Rows.Count > 0)
             {
-                Session["email"] = email;
+                Response.Cookies.Add(ck.addcokie(email));
                 Server.Transfer("Home.aspx");
             }
             if (dt.Rows.Count <= 0)
@@ -111,12 +107,18 @@ namespace productgame.stylesheet
 
             if (!string.IsNullOrEmpty(Request.QueryString["code"]))
             {
-                string code = Request.QueryString["code"];
-                string json = GoogleConnect.Fetch("me", code);
-                GoogleProfile profile = new JavaScriptSerializer().Deserialize<GoogleProfile>(json);
-                Session["email"] = profile.Emails.Find(email => email.Type == "account").Value;
-                Server.Transfer("./home.aspx");
-                Request.QueryString.Remove("code");
+                try
+                {
+                    /*string code = Request.QueryString["code"].ToString();
+                    string json = GoogleConnect.Fetch("me", code.ToString());
+                    GoogleProfile profile = new JavaScriptSerializer().Deserialize<GoogleProfile>(json);
+                    Response.Cookies.Add(ck.addcokie(profile.Emails.Find(email => email.Type == "account").Value));*/
+                    Server.Transfer("./home.aspx");
+                    Request.QueryString.Remove("code");
+                }
+                catch (GoogleApiException ex) {
+                    Response.Write(ex);
+                }
             }
             if (Request.QueryString["error"] == "access_denied")
             {
@@ -128,13 +130,21 @@ namespace productgame.stylesheet
             FaceBookConnect.API_Key = ConfigurationManager.AppSettings["fb_app_id"];
             FaceBookConnect.API_Secret = ConfigurationManager.AppSettings["fb_app_secret"];
             FaceBookUser faceBookUser = new FaceBookUser();
+            
             if (!string.IsNullOrEmpty(Request.QueryString["code"]))
             {
-                string data = FaceBookConnect.Fetch("code", "me?fields=id,name,email");
-                faceBookUser = new JavaScriptSerializer().Deserialize<FaceBookUser>(data);
-                Session["email"] = faceBookUser.Name;
-                Server.Transfer("./home.aspx");
-                Request.QueryString.Remove("code");
+                try
+                {
+                    /*string data = FaceBookConnect.Fetch("code", "me?fields=id,name,email");
+                    faceBookUser = new JavaScriptSerializer().Deserialize<FaceBookUser>(data);
+                    Response.Cookies.Add(ck.addcokie(faceBookUser.Name));*/
+                    Server.Transfer("./home.aspx");
+                    Request.QueryString.Remove("code");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex);
+                }
             }
             if (Request.QueryString["error"] == "access_denied")
             {
@@ -154,6 +164,7 @@ namespace productgame.stylesheet
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
+
             GoogleConnect.Authorize("profile", "email");
         }
     }

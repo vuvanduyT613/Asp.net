@@ -1811,6 +1811,7 @@
     <Content Include="Stylesheet\js\owl.carousel.min.js" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="Stylesheet\js\register.js" />
     <Content Include="Stylesheet\vendor\animate\animate.css" />
     <Content Include="Stylesheet\vendor\animsition\css\animsition.css" />
     <Content Include="Stylesheet\vendor\animsition\css\animsition.min.css" />
@@ -1844,8 +1845,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\cookie.cs" />
     <Compile Include="Class\connection.cs" />
+    <Compile Include="Class\controlCookie.cs" />
+    <Compile Include="Class\validations.cs" />
     <Compile Include="forgotten.aspx.cs">
       <DependentUpon>forgotten.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

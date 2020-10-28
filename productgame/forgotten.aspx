@@ -52,7 +52,7 @@
                     </asp:Panel>
                     <br>
                     <asp:Panel ID="Panel3" runat="server" class="btn btn-aqua">
-                            <asp:Button ID="Button2" runat="server" class="btn-submit-info-1" Text="Đăng ký tài khoản mới"/>
+                            <asp:Button ID="Button2" runat="server" class="btn-submit-info-1" Text="Đăng ký tài khoản mới" OnClick="Button2_Click"/>
                     </asp:Panel>
                 </div>
               </div>

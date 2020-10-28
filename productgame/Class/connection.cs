@@ -1,22 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
-using System.Security.Principal;
-using System.Web.Services.Description;
-using Facebook;
-using GoogleApi;
-using System.Web.Script.Serialization;
-using System.Security.Policy;
-using System.Configuration;
-using ASPSnippets.GoogleAPI;
-using ASPSnippets.FaceBookAPI;
-using System.EnterpriseServices;
-using System.Dynamic;
+
 
 namespace productgame.Class
 {
@@ -38,7 +23,26 @@ namespace productgame.Class
             }
         }
 
+        public int Handle(string sql)
+        {
+            
+            int kq = 0;
+            try
+            {
+                conOpen();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                kq = cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                kq = 0;
+            }
+            finally
+            {
+                conClose();
+            }
+            return kq;
+        }
 
-       
     }
 }
