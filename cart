@@ -1,0 +1,114 @@
+//1. Tao va Luu tru cart
+DataTable cart = new DataTable();
+if (Session[ " cart "] == null)
+{
+	// Neu chua co gio hang, tao gio hang thong qua DataTable voi 4 cot chinh
+	// ID, Name, Price, Quantily
+	cart.Columns.Add("ID");
+	cart.Columns.Add("Name");
+	cart.Columns.Add("Price");
+	cart.Columns.Add("Quantity");
+	// Sau khi tao xong thi luu vao session
+	Session[ "cart"]= cart;
+}
+else
+{	
+	// Lay thong tin Gio hang tu Session["cart"]
+	cart = Session [ " cart" ] as DataTable
+}
+
+// 2.Them SP vao cart
+if(!String.IsNullOrEmpty(Request.QueryString["action"]))
+{
+      if (Request.QueryString["action"]) == "ad"
+      {
+	string ID = Request.QueryString["id"];
+      	string ID = Request.QueryString["name"];
+	string ID = Request.QueryString["price"];
+	//Kiem tra xem da co SP trong gio hang chua?
+	// Neu chua thi them ba ghi moi vao voi so luong Quantily la 1
+	// Neu co thi tang Quantity len 1
+	bool isExisted = false;
+	foreach( DataRow dr in cart.Rows)
+	{
+	      if ( dr["ID"].ToString() == ID)
+	      {
+		dr["Quantity"] = int.Parse(dr["Quantity"].ToString()) + 1;
+		is.Existed = true;
+		break
+	      }
+	}
+	if(!isExisted) // chua co SP trong cart
+	{	
+	       DataRow dr = cart.NewRow();
+	       dr["ID"] = id;
+	       dr["Name"] = name;
+	       dr[Price"] = price;
+	       dr["Quantity"] = id;
+	       cart.Rows.Add(dr);
+	}
+	// Luu lai thong tin cart moi nhat vao session["Cart"]
+	Session["cart"] = cart;
+	Respose.Redirect("Default.aspx")
+      }
+}
+
+// 3.Sua thong tin cart
+protected void GridView1_SelectedIndexChangin(object sender, GridViewSelectEventArgs e)
+{
+	// Sua thong tin gio hang
+	string id = GridView1.DataKeys[e.NewSelectedIndex].Value.ToString();
+	TexBox quantity = GridView1.Row[e.NewSelectedIndex].Cell[2].FindControl("txtQuantity") as TextBox;
+	// Duyet qua cart va tabg so luong
+	DataTable cart = Session["cart"] as DataTable;
+	foreach( DataRow dr in cart.Rows)
+	{
+	      // Kiem tra ma SP phu hop de gan so luong 
+	      if (dr["ID"].ToString() == id)
+	      {
+ 		dr["Quantily"] = int.Parse(quantily.Text);
+		break;
+	      }
+	}
+	// Luu lai vao Session
+	Session["cart"] = cart;
+	// Hien thi cart voi thong tin moi
+	GridView1.DataSource = cart;
+	GridView1.DataBind();
+}
+
+// 4.Xoa SP khoi cart
+
+protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+{
+	// Xoa SP khoi cart
+	string id = GridView1.DataKeys[e.RowIndex].Value.ToString();
+	// Duyet qua cart va xoa SP
+	DataTable cart = Session[" cart"] as DataTable;
+	foreach (DataRow r in cart.Rows)
+	{
+	      // Kiem tra ma SP phu hop de tang so luong
+	      id ( dr["ID"].ToString() == id)
+	      {
+		dr.Delete();
+		break;
+	      }
+	}
+	// Luu lai vao Session 
+	Session["cart"] = cart;
+	// Hien thi cart voi thong tin moi
+	GridView1.DataSource = cart;
+	GridView1.DataBind();
+}
+
+// 5.Duyet qua Gio Hang
+
+//Duyet qua Cart
+DataTable cart = Session["cart"] as DataTable;
+foreach (DataRow dr in cart.Rows)
+{
+	string proID = dr["ID"].ToString();
+	string proName = dr["Name"].ToString();
+	string proPrice = dr["Price"].ToString();
+	string proQuantity = dr["Quantity"].ToString();	
+}
