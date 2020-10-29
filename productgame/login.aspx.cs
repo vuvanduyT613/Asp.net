@@ -75,10 +75,14 @@ namespace productgame.stylesheet
 
             if (dt.Rows.Count > 0)
             {
-                Response.Cookies.Add(ck.addcokie(email));
-                Response.Write("<script>setTimeout(() => {alert('Đăng Nhập thành công');}, 1500);</script>");
-                Server.Transfer("~/default.aspx");
+                Random r = new Random();
+                
+                Response.Write("<script>setTimeout(() => {alert('Đăng nhập thành công');}, 1500);</script>");
+                //set session
+                Session["session"] = Convert.ToString( r.Next());
+                Response.Redirect("~/default.aspx?email="+ email);
             }
+
             if (dt.Rows.Count <= 0)
             {
                 this.Label1.Text = "Gmail và mật khẩu không hợp lệ!";
@@ -114,7 +118,7 @@ namespace productgame.stylesheet
                     string json = GoogleConnect.Fetch("me", code.ToString());
                     GoogleProfile profile = new JavaScriptSerializer().Deserialize<GoogleProfile>(json);
                     Response.Cookies.Add(ck.addcokie(profile.Emails.Find(email => email.Type == "account").Value));*/
-                    Server.Transfer("./home.aspx");
+                    Server.Transfer("~/default.aspx");
                     Request.QueryString.Remove("code");
                 }
                 catch (GoogleApiException ex) {
@@ -139,7 +143,7 @@ namespace productgame.stylesheet
                     /*string data = FaceBookConnect.Fetch("code", "me?fields=id,name,email");
                     faceBookUser = new JavaScriptSerializer().Deserialize<FaceBookUser>(data);
                     Response.Cookies.Add(ck.addcokie(faceBookUser.Name));*/
-                    Server.Transfer("./home.aspx");
+                    Server.Transfer("default.aspx");
                     Request.QueryString.Remove("code");
                 }
                 catch (Exception ex)
@@ -160,7 +164,7 @@ namespace productgame.stylesheet
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            FaceBookConnect.Authorize("user_photos,email", string.Format("{0}://{1}/{2}", Request.Url.Scheme, Request.Url.Authority, "./home.aspx"));
+            FaceBookConnect.Authorize("user_photos,email", string.Format("{0}://{1}/{2}", Request.Url.Scheme, Request.Url.Authority, "default.aspx"));
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)

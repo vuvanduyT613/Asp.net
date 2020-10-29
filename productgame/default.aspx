@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/sitemain.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="productgame._default"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/sitemain.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="productgame._default" MaintainScrollPositionOnPostback="true"%>
 <%@ MasterType VirtualPath="~/sitemain.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<title>home</title>
@@ -14,7 +14,7 @@
 						<div class="col-xl-6 col-lg-8 text-white">
 							<span>TRÒ CHƠI MỚI</span>
 							<h2>Counter-Strike Global Offensive</h2>
-							<p>Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters. </p>
+							<p>Counter-Strike: Global Offensive (CS: GO) mở rộng dựa trên lối chơi hành động dựa trên đồng đội mà nó đã đi tiên phong khi ra mắt cách đây 19 năm. CS: GO có các bản đồ, nhân vật mới. </p>
 							<a href="#" class="site-btn sb-line">KHÁM PHÁ</a>
 							<a href="#" class="site-btn sb-white">THÊM VÀO GIỎ</a>
 						</div>
@@ -32,7 +32,7 @@
 						<div class="col-xl-6 col-lg-8 text-white">
 							<span>TRÒ CHƠI MỚI</span>
 							<h2>Fortnite</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+							<p>Fortnite đưa người chơi đến bối cảnh Trái Đất hiện đại, với sự xuất hiện đột ngột của một cơn bão trên toàn thế giới làm 98% dân số thế giới biến mất, và các sinh vật giống zombie tấn công số người còn sót lại. </p>
 							<a href="#" class="site-btn sb-line">KHÁM PHÁ</a>
 							<a href="#" class="site-btn sb-white">THÊM VÀO GIỎ</a>
 						</div>
@@ -62,7 +62,7 @@
 			<asp:DataList ID="DataList1" runat="server"  RepeatColumns="4" HorizontalAlign="left">
 				<ItemTemplate>
 					<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
-						<div class="product-item" style="width:270px;">
+						<div class="product-item" style="width:270px;padding:0px">
 							<div class="pi-pic">
 								<asp:Image ID="Image1" runat="server" Height="180px" ImageUrl='<%# "./Stylesheet/img/"+ Eval("ImageSource") %>'/>
 								<div class="pi-links">
@@ -91,5 +91,4 @@
 			</div>
 		</div>
 	</section>
-
 </asp:Content>

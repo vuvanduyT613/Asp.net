@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="sitemain.master.cs" Inherits="productgame.sitemain"%>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="sitemain.master.cs" Inherits="productgame.sitemain" %>
 <!DOCTYPE html>
 
 <html>
@@ -47,13 +47,14 @@
 							<div class="user-panel">
 								<div class="up-item">
                                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/login.aspx"><i class="flaticon-profile"></i></asp:HyperLink>
+                                    <asp:Label ID="lbl_email" runat="server" Text=""></asp:Label>
 								</div>
 								<div class="up-item">
 									<div class="shopping-card">
 										<i class="flaticon-bag"></i>
                                         <asp:Label ID="lbl_countcart" runat="server" Text="0"></asp:Label> 
 									</div>
-									<a href="/site/cart.php">Giỏ Hàng</a>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Giỏ Hàng</asp:LinkButton>
 								</div>
 							</div>
 						</div>
