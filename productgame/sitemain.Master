@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="sitemain.master.cs" Inherits="productgame.sitemain"%>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+	<meta name="description" content=" Shop">
+	<meta name="keywords" content="software, eCommerce, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./Stylesheet/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/flaticon.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/slicknav.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/animate.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/styles.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/sitemain.css"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+		<!-- Page Preloder -->
+		<div id="preloder">
+			<div class="loader"></div>
+		</div>
+
+		<!-- Header section -->
+		<header class="header-section">
+			<div class="header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-2 text-center text-lg-left">
+							<!-- logo -->
+							<a href="/site/" class="site-logo">
+								<h3>SHOP TECH</h3>
+							</a>
+						</div>
+						<div class="col-xl-6 col-lg-5">
+							<div class="header-search-form">
+								<input type="text" placeholder="Tìm kiếm ">
+								<button><i class="flaticon-search"></i></button>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-5">
+							<div class="user-panel">
+								<div class="up-item">
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/login.aspx"><i class="flaticon-profile"></i></asp:HyperLink>
+								</div>
+								<div class="up-item">
+									<div class="shopping-card">
+										<i class="flaticon-bag"></i>
+                                        <asp:Label ID="lbl_countcart" runat="server" Text="0"></asp:Label> 
+									</div>
+									<a href="/site/cart.php">Giỏ Hàng</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class ="main-contol">
+				<nav class="main-navbar">
+					<div class="container">
+						<!-- menu -->
+						<ul class="main-menu">
+							<li><a href="/site/home.php">Trang chủ</a></li>
+							<li><a href="/site/shopteach.php">Sản Phẩm</a></li>
+							<li><a href="#">Tips</a>
+								<ul class="sub-menu">
+									<li><a href="/site/home.php">Tip Windows</a></li>
+									<li><a href="/site/home.php">Tip Ubuntu</a></li>
+									<li><a href="/site/home.php">Tip Mac</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Trang Liên Hệ</a></li>
+							<li><a href="#">Blog</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+			
+		
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+		<section class="footer-section">		
+			<div class="social-links-warp">
+				<div class="container">
+					<div class="social-links">
+						<a href="https://www.facebook.com/vuvanduy1311" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+						<a href="https://www.facebook.com/vuvanduy1311" class="google-plus"><i class="fa fa-google-plus"></i><span>g+plus</span></a>
+						<a href="https://www.facebook.com/vuvanduy1311" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+						<a href="https://www.facebook.com/vuvanduy1311" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+						<a href="https://www.facebook.com/vuvanduy1311" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+						<a href="https://www.facebook.com/vuvanduy1311" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+						<a href="https://www.facebook.com/vuvanduy1311" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+					</div>
+
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					<p class="text-white text-center mt-5">Copyright &copy;<script>
+							document.write(new Date().getFullYear());
+					</script> All rights reserved | This coder is made with by Duy , Khoa , Duoc .</p>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</div>
+			</div>
+		</section>
+    </form>
+	<!-- Javascripts & Jquery -->
+	<script src="./Stylesheet/js/jquery-3.2.1.min.js"></script>
+	<script src="./Stylesheet/js/bootstrap.min.js"></script>
+	<script src="./Stylesheet/js/jquery.slicknav.min.js"></script>
+	<script src="./Stylesheet/js/owl.carousel.min.js"></script>
+	<script src="./Stylesheet/js/jquery.nicescroll.min.js"></script>
+	<script src="./Stylesheet/js/jquery.zoom.min.js"></script>
+	<script src="./Stylesheet/js/jquery-ui.min.js"></script>
+	<script src="./Stylesheet/js/main.js"></script>
+</body>
+</html>

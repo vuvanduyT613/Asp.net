@@ -11,11 +11,21 @@
     <link rel="stylesheet" href="./Stylesheet/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./Stylesheet/icon-fonts/css/all.css"/>
     <link rel="stylesheet" href="./Stylesheet/css/forgotten.css" />
+    <link rel="stylesheet" href="./Stylesheet/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/flaticon.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/slicknav.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/animate.css" />
+    <link rel="stylesheet" href="./Stylesheet/css/styles.css" />
     <link rel="stylesheet" href="./Stylesheet/css/common.css">
     <title>Forgotten</title>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div id="preloder">
+			<div class="loader"></div>
+		</div>
         <div class="container">
           <div class="d-flex justify-content-center h-100" >
             <div class="card-main">
@@ -62,5 +72,11 @@
     <script src="./Stylesheet/js/jquery-3.5.1.min.js"></script>
 	<script src="./Stylesheet/js/bootstrap.min.js"></script>
     <script src="./Stylesheet/icon-fonts/js/all.js"></script>
+    <script src="./Stylesheet/js/jquery.slicknav.min.js"></script>
+	<script src="./Stylesheet/js/owl.carousel.min.js"></script>
+	<script src="./Stylesheet/js/jquery.nicescroll.min.js"></script>
+	<script src="./Stylesheet/js/jquery.zoom.min.js"></script>
+	<script src="./Stylesheet/js/jquery-ui.min.js"></script>
+	<script src="./Stylesheet/js/main.js"></script>
 </body>
 </html>

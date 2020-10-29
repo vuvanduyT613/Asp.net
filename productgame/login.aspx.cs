@@ -76,7 +76,8 @@ namespace productgame.stylesheet
             if (dt.Rows.Count > 0)
             {
                 Response.Cookies.Add(ck.addcokie(email));
-                Server.Transfer("Home.aspx");
+                Response.Write("<script>setTimeout(() => {alert('Đăng Nhập thành công');}, 1500);</script>");
+                Server.Transfer("~/default.aspx");
             }
             if (dt.Rows.Count <= 0)
             {

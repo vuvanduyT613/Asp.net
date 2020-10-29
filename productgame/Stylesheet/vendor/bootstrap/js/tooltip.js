@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./node_modules/popper.js.js')) :
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('popper.js')) :
 	typeof define === 'function' && define.amd ? define(['popper.js'], factory) :
 	(global.Tooltip = factory(global.Popper));
 }(this, (function (Popper) { 'use strict';

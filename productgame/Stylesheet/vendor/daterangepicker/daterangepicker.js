@@ -18,10 +18,10 @@
         //isomorphic issue
         var jQuery = (typeof window != 'undefined') ? window.jQuery : undefined;
         if (!jQuery) {
-            jQuery = require('./node_modules/jquery');
+            jQuery = require('jquery');
             if (!jQuery.fn) jQuery.fn = {};
         }
-        var moment = (typeof window != 'undefined' && typeof window.moment != 'undefined') ? window.moment : require('./node_modules/moment');
+        var moment = (typeof window != 'undefined' && typeof window.moment != 'undefined') ? window.moment : require('moment');
         module.exports = factory(moment, jQuery);
     } else {
         // Browser globals

@@ -9,12 +9,22 @@
     <link rel="stylesheet" href="./Stylesheet/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
     <link rel="stylesheet" href="./Stylesheet/css/register.css" />
+    <link rel="stylesheet" href="./Stylesheet/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/flaticon.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/slicknav.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/animate.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/styles.css" />
     <link rel="stylesheet" href="./Stylesheet/css/common.css">
     <script src="./Stylesheet/js/register.js" type="text/javascript"></script>
     <title>resgister</title>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div id="preloder">
+			<div class="loader"></div>
+		</div>
         <div class="container">
           <div class="d-flex justify-content-center">
             <div class="card-main">
@@ -99,5 +109,11 @@
     </form>
     <script src="./Stylesheet/js/jquery-3.5.1.min.js"></script>
 	<script src="./Stylesheet/js/bootstrap.min.js"></script>
+    <script src="./Stylesheet/js/jquery.slicknav.min.js"></script>
+	<script src="./Stylesheet/js/owl.carousel.min.js"></script>
+	<script src="./Stylesheet/js/jquery.nicescroll.min.js"></script>
+	<script src="./Stylesheet/js/jquery.zoom.min.js"></script>
+	<script src="./Stylesheet/js/jquery-ui.min.js"></script>
+	<script src="./Stylesheet/js/main.js"></script>
 </body>
 </html>

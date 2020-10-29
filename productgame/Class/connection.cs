@@ -7,9 +7,9 @@ namespace productgame.Class
 {
     public class connection
     {
+        
         string stcn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\vuvan\OneDrive\Documents\ASP\END GAME\productgame\productgame\App_Data\product.mdf';Integrated Security=True";
         SqlConnection con;
-
         public void conOpen()
         {
             con = new SqlConnection(stcn);
@@ -22,7 +22,7 @@ namespace productgame.Class
                 con.Close();
             }
         }
-
+        
         public int Handle(string sql)
         {
             
@@ -44,5 +44,7 @@ namespace productgame.Class
             return kq;
         }
 
+
+      
     }
 }
