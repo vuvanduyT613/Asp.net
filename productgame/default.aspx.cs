@@ -46,7 +46,8 @@ namespace productgame
         {
             int i = Convert.ToInt32(Master.lblCountCart.Text) + 1;
             Master.lblCountCart.Text = Convert.ToString(i);
-            DataList1.Focus();
+            Session["count"] = i;
+            Session[String.Format("Session{0}", i)] = ((LinkButton)sender).CommandArgument;
         }
     }
 }

@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="./Stylesheet/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./Stylesheet/icon-fonts/css/all.css"/>
     <link rel="stylesheet" href="./Stylesheet/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="./Stylesheet/css/flaticon.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/flaticons.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/slicknav.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/animate.css" />
-    <link rel="stylesheet" href="./Stylesheet/css/logins.css" />
+    <link rel="stylesheet" href="./Stylesheet/css/login.css" />
     <link rel="stylesheet" href="./Stylesheet/css/styles.css" />
 
     <link rel="stylesheet" href="./Stylesheet/css/common.css">
@@ -72,7 +72,17 @@
                         <asp:TextBox ID="txt_pass" runat="server" class="form-control input-popup-login" type="password" placeholder="Mật khẩu" ></asp:TextBox>
                       </div>
                     </div>
-                    <p class="text-left"><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/forgotten.aspx">Bạn quên mật khẩu?</asp:HyperLink></p>
+                    <div class="container-check">
+                        <div class="left-check">
+                            <asp:CheckBox ID="checkbox" runat="server" />
+                            <p>Ghi nhớ tài khoản</p>
+                        </div>
+                        <div class="right-check">
+                            <p class="text-left"><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/forgotten.aspx">Bạn quên mật khẩu?</asp:HyperLink></p>
+                        </div>
+                    </div>
+                    <div></div>
+                    
               
                     <asp:Panel ID="Panel2" runat="server" class="btn btn-aqua-bg">
                         <asp:Button ID="Button1" runat="server"  class="btn-submit-info" Text="Đăng nhập" OnClick="btn_dangnhap_Click1" style="width:100% ; height:100%"/>

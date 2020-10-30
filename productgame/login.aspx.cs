@@ -17,7 +17,9 @@ using GoogleApi.Exceptions;
 using System.EnterpriseServices;
 using System.Dynamic;
 using productgame.Class;
-
+using Newtonsoft.Json;
+using System.Runtime.Serialization.Formatters;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace productgame.stylesheet
 {
@@ -31,6 +33,12 @@ namespace productgame.stylesheet
             checkConect();
             getApiGoogle();
             getApiFacebook();
+            loadDataCookie();
+
+            if (Request.QueryString["not"] != null) 
+            {
+                Response.Write("<script>setTimeout(() => {alert('Đăng Kí thành công');}, 1500);</script>");
+            }
         }
 
         public class FaceBookUser
@@ -63,33 +71,67 @@ namespace productgame.stylesheet
             string query = "SELECT * FROM Nembers WHERE Email = '" + email + "'AND PassWord = '" + pass + "'";
             DataTable dt = new DataTable();
 
-            try
+            if (pass.Length < 6)
             {
-                SqlDataAdapter da = new SqlDataAdapter(query, ConfigurationManager.AppSettings["con"]);
-                da.Fill(dt);
+                this.Label1.Text = "Vui lòng nhập mật khẩu lớn hơn 6 kí tự!";
             }
-            catch (SqlException ex)
+            else 
             {
-                Response.Write("Fail" + ex.Message);
-            }
+                try
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(query, ConfigurationManager.AppSettings["con"]);
+                    da.Fill(dt);
+                }
+                catch (SqlException ex)
+                {
+                    Response.Write("Fail" + ex.Message);
+                }
 
-            if (dt.Rows.Count > 0)
-            {
-                Random r = new Random();
-                
-                Response.Write("<script>setTimeout(() => {alert('Đăng nhập thành công');}, 1500);</script>");
-                //set session
-                Session["session"] = Convert.ToString( r.Next());
-                Response.Redirect("~/default.aspx?email="+ email);
-            }
+                if (dt.Rows.Count > 0)
+                {
 
-            if (dt.Rows.Count <= 0)
+                    Random r = new Random();
+                    //set session
+                    Session["session"] = Convert.ToString(r.Next());
+                    //set cookie
+                    HttpCookie ckEmail = new HttpCookie("email", email);
+                    HttpCookie ckPass = new HttpCookie("pass", pass);
+                    //check save infomation
+                    if (checkbox.Checked == true) 
+                    {
+                        ckEmail.Expires = DateTime.Now.AddMinutes(1);
+                        ckPass.Expires = DateTime.Now.AddMinutes(1);
+
+                        Session["Email"] = email;
+                        Session["Date"] = DateTime.Now;
+                    }
+                    else 
+                    {
+                        ckEmail.Expires = DateTime.Now.AddMinutes(-1);
+                        ckPass.Expires = DateTime.Now.AddMinutes(-1);
+                    }
+                    Response.Cookies.Add(ckEmail);
+                    Response.Cookies.Add(ckPass);
+                    Response.Write("<script>setTimeout(() => {alert('Đăng nhập thành công');}, 1500);</script>");
+                    Response.Redirect("~/default.aspx?email=" + email);
+                }
+
+                if (dt.Rows.Count <= 0)
+                {
+                    this.Label1.Text = "Gmail và mật khẩu không hợp lệ!";
+                    this.txt_email.Text = email;
+                    this.txt_pass.Text = pass;
+                }
+
+            }
+        }
+
+        protected void loadDataCookie() {
+            if(Request.Cookies["email"] != null && Request.Cookies["pass"] != null) 
             {
-                this.Label1.Text = "Gmail và mật khẩu không hợp lệ!";
-                //this.Panel1.Attributes.Add("class", "alert alert-danger");
-                this.txt_email.Text = email;
-                this.txt_pass.Text = pass;
-                //Server.Transfer("Login.aspx");
+                txt_email.Text = Request.Cookies["email"].Value;
+                txt_pass.Text = Request.Cookies["pass"].Value;
+                checkbox.Checked = true;
             }
         }
 
@@ -114,10 +156,15 @@ namespace productgame.stylesheet
             {
                 try
                 {
-                    /*string code = Request.QueryString["code"].ToString();
-                    string json = GoogleConnect.Fetch("me", code.ToString());
-                    GoogleProfile profile = new JavaScriptSerializer().Deserialize<GoogleProfile>(json);
-                    Response.Cookies.Add(ck.addcokie(profile.Emails.Find(email => email.Type == "account").Value));*/
+                   /* var jsonSettings = new JsonSerializerSettings
+                    {
+                        TypeNameHandling = TypeNameHandling.Objects,
+                        TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple
+                    };
+                    GoogleProfile json = new GoogleProfile();
+                    var code = Request.QueryString["code"];
+                    json = JsonConvert.DeserializeObject<GoogleProfile>( GoogleConnect.Fetch("me", code), jsonSettings);
+                    //GoogleProfile profile = new JavaScriptSerializer().Deserialize<GoogleProfile>(json);*/
                     Server.Transfer("~/default.aspx");
                     Request.QueryString.Remove("code");
                 }
@@ -169,8 +216,8 @@ namespace productgame.stylesheet
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-
             GoogleConnect.Authorize("profile", "email");
+            GoogleConnect.Clear(Request.QueryString["code"]);
         }
     }
 }

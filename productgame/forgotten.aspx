@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./Stylesheet/icon-fonts/css/all.css"/>
     <link rel="stylesheet" href="./Stylesheet/css/forgotten.css" />
     <link rel="stylesheet" href="./Stylesheet/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="./Stylesheet/css/flaticon.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/flaticons.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/slicknav.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />

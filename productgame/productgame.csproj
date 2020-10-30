@@ -101,11 +101,11 @@
     <Content Include="Stylesheet\css\bootstrap.min.css" />
     <Content Include="Stylesheet\css\common.css" />
     <Content Include="Stylesheet\css\default.css" />
-    <Content Include="Stylesheet\css\flaticon.css" />
+    <Content Include="Stylesheet\css\flaticons.css" />
     <Content Include="Stylesheet\css\font-awesome.min.css" />
     <Content Include="Stylesheet\css\forgotten.css" />
     <Content Include="Stylesheet\css\jquery-ui.min.css" />
-    <Content Include="Stylesheet\css\logins.css" />
+    <Content Include="Stylesheet\css\login.css" />
     <Content Include="Stylesheet\css\owl.carousel.min.css" />
     <Content Include="Stylesheet\css\register.css" />
     <Content Include="Stylesheet\css\sitemain.css" />

@@ -80,8 +80,8 @@ html, body {
 }
 
 .btn-submit-info:hover{
-    width : 100%;
-    height : 100%;
+    width: 100%;
+    height: 100%;
     color: #21beff;
 }
 
@@ -92,3 +92,26 @@ html, body {
 
 }
 
+.container-check {
+    width: 100%;
+    height: 20px;
+}
+
+.left-check {
+    float: left;
+    display: flex;
+}
+
+.right-check {
+    float: right;
+}
+
+#checkbox {
+    margin-top: 4px;
+    margin-right: 4px;
+}
+
+
+#Panel2 {
+    margin-top : 20px;
+}

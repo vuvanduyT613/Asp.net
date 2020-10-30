@@ -66,7 +66,8 @@
 							<div class="pi-pic">
 								<asp:Image ID="Image1" runat="server" Height="180px" ImageUrl='<%# "./Stylesheet/img/"+ Eval("ImageSource") %>'/>
 								<div class="pi-links">
-									<asp:LinkButton ID="LinkButton1" runat="server" class="add-card" OnClick="LinkButton1_Click"><i class="flaticon-bag"></i><span>THÊM VÀO GIỎ</span></asp:LinkButton>								
+									<asp:LinkButton ID="LinkButton1" runat="server" class="add-card" OnClick="LinkButton1_Click" CommandArgument='<%# Eval("ProductID") %>'><i class="flaticon-bag"></i><span>THÊM VÀO GIỎ</span></asp:LinkButton>								
+                                    <asp:LinkButton ID="LinkButton2" runat="server" class="wishlist-btn"><i class="flaticon-info"></i></asp:LinkButton>
 								</div>
 							</div>
 							<div class="pi-text">
@@ -92,3 +93,4 @@
 		</div>
 	</section>
 </asp:Content>
+<%--  --%>

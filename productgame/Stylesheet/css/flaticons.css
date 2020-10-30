@@ -28,7 +28,8 @@
 }
 
 .flaticon-add:before { content: "\f100"; }
-.flaticon-bag:before { content: "\f101"; }
+.flaticon-bag:before { content: "\f101"; margin-left: 2.5px;}
+.flaticon-bag:after {margin-left: 2.5px;}
 .flaticon-battery:before { content: "\f102"; }
 .flaticon-bell:before { content: "\f103"; }
 .flaticon-bluetooth:before { content: "\f104"; }

@@ -60,16 +60,18 @@ namespace productgame.Stylesheet
                 {
                     try
                     {
-                        int result = cn.Handle(query);
-                        if (result > 0)
+                        if(CheckBox1.Checked == true) 
                         {
-                            Response.Write("<script>setTimeout(() => {alert('Đăng ký thành công');}, 1500);</script>");
-                            Server.Transfer("~/login.aspx");
+                            Random rd = new Random();
+                            int result = cn.Handle(query);
+                            if (result > 0)
+                            {
+                                Response.Redirect("~/login.aspx?not="+rd.Next());
+                            }
                         }
-                        else
+                        else 
                         {
-                            Response.Write("<script>setTimeout(() => { alert('Đăng ký không thành công'); }, 1500);</script>");
-                            Server.Transfer("~/register.aspx");
+                            Response.Write("<script>setTimeout(() => {alert('Vui lòng đồng ý điều khoản của chúng tôi');}, 1500);</script>");
                         }
                     }
                     catch (SqlException ex)

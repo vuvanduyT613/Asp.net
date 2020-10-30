@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./Stylesheet/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="./Stylesheet/css/flaticon.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/flaticons.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/slicknav.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />
