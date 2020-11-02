@@ -9,7 +9,6 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <asp:DataList ID="DataList1" runat="server">
                     <ItemTemplate>
-                        <p><%# Eval("ProductID") %></p>
                         <div class="row" style="border : 1px solid #d9d9d9">  
                             <div class="col-lg-3 col-md-3 col-sm-3">
                                 <div class="space-row">
@@ -26,24 +25,24 @@
                                         <div class="text">Trạng thái :</div>
                                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("Status") %>' CssClass="label1"></asp:Label>
                                     </div>
-                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="delete">Xóa</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="delete" OnClick="LinkButton2_Click" CommandArgument='<%# Eval("ProductID") %>'>Xóa</asp:LinkButton>
                                 </div>
                             </div>
                     
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="space-row">
-                                    <div class="price">
+                                    <asp:Panel ID="Panel1" runat="server" CssClass="price" CommandArgument='<%# Eval("ProductID") %>'>
                                         <%# Eval("Prince") %>
-                                    </div>
+                                    </asp:Panel>
                                 </div>
                             </div>
                     
                             <div class="col-lg-2 col-md-2 col-sm-2">
                                 <div class="space-row">
                                     <div class="qlr">
-                                        <a class="BtnMinus"></a>
-                                        <input class="form-control" id="input-quantity" type="text" value="1"/>
-                                        <a class="BtnPlus"></a>
+                                        <asp:LinkButton ID="LinkButton5" runat="server" CssClass="BtnMinus" OnClick="LinkButton5_Click"></asp:LinkButton>
+                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Text='1' Width="50px" Height="26px" style="text-align:center"></asp:TextBox>
+                                        <asp:LinkButton ID="LinkButton6" runat="server" CssClass="BtnPlus" OnClick="LinkButton6_Click"></asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -65,9 +64,7 @@
                                 <div class="bill-price-text">
                                     Thành tiền sản phẩm
                                 </div>
-                                 <div class="bill-price">
-                                    20$
-                                </div>
+                                <asp:Label ID="lbl_prince" runat="server" Text="Label" CssClass="bill-price"></asp:Label>  
                             </div>
                         </div>
                         <hr />
@@ -76,9 +73,7 @@
                                 <div class="bill-price-text-red">
                                     TỔNG TIỀN
                                 </div>
-                                 <div class="bill-price-red">
-                                    20$
-                                </div>
+                                <asp:Label ID="lbl_prince_red" runat="server" Text="Label" CssClass="bill-price-red"></asp:Label>
                             </div>
                         </div>
                         <hr />
@@ -92,8 +87,8 @@
             
                 <div class="row">
                     <div class="form-button">
-                        <button type="button" class="btn btn-none-bg">Tiếp tục mua hàng</button>
-                        <button type="button" class="btn btn-blue-bg">Thanh toán</button>
+                        <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn btn-none-bg" OnClick="LinkButton3_Click">Tiếp tục mua hàng</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-blue-bg" OnClick="LinkButton4_Click">Thanh toán</asp:LinkButton>
                     </div>
                 </div>
             </div>

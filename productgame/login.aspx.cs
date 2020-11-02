@@ -101,7 +101,10 @@ namespace productgame.stylesheet
                     {
                         ckEmail.Expires = DateTime.Now.AddMinutes(20);
                         ckPass.Expires = DateTime.Now.AddMinutes(20);
-
+                        foreach(DataRow row in dt.Rows)
+                        {
+                            Session["NemberID"] = row["NemberID"].ToString();
+                        }
                         Session["Email"] = email;
                         Session["Date"] = DateTime.Now;
                     }

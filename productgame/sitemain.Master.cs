@@ -18,9 +18,9 @@ namespace productgame
         public static int one = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["email"] != null)
+            if (Request.QueryString["email"] != null || Session["Email"] != null)
             {
-                this.lbl_email.Text = Request.QueryString["email"];
+                this.lbl_email.Text = Session["Email"].ToString();
                 if (one == 0)
                 {
                     Response.Write("<script>setTimeout(() => {alert('Đăng nhập thành công');}, 1500);</script>");
@@ -42,10 +42,9 @@ namespace productgame
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            if (Session["session"] != null)
+            if (Session["session"] != null || Request.Cookies["email"] != null)
             {
                 Response.Redirect("~/cart.aspx");
-                //Response.Write("<script>setTimeout(() => {alert('Mua hàng thành công');}, 1500);</script>");
             }
             else 
             {
