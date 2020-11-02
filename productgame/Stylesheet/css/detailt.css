@@ -1,0 +1,141 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Numans');
+
+
+.sp-info-top-item-icon {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-wrap {
+    margin-left: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 15px 0px 0px 7px;
+}
+
+.fontSize-title {
+    font-size: 26px;
+    margin: 5px 0px 10px 20px;
+    font-weight: bold;
+}
+
+.sp-price-text {
+    color: #919191;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0px 5px 10px;
+    
+}
+
+.price {
+    font-size: 24px;
+    font-weight : bold;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.qlr {
+    display: -webkit-inline-box;
+}
+
+.qlr a {
+    background: url(../../IconImage/plus.png) 1px 1px no-repeat #f5f5f5;
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    position: relative;
+    text-indent: -9999px;
+    border: 1px solid #ccc;
+    transition: all .3s ease-in-out;
+    outline: 0;
+    opacity: .7;
+}
+
+a.BtnMinus {
+    background-position: 4px -20px;
+}
+
+
+a.BtnPlus{
+    background-position : 3px 3px;
+}
+
+#input-quantity {
+    width: 46px;
+    height: 26px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0;
+}
+
+.button-main {
+    display: flex;
+    margin-top : 10px;
+}
+
+.btn-green-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #29b474;
+    color: #fff;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #29b474;
+    height: 40px;
+    border-radius: 2px !important;
+    margin-top: 12px;
+    width: 144px;
+}
+
+.btn-green-bg:hover {
+    color: #fff;
+    background-color: #21915d;
+}
+
+.btn-orange-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffb517;
+    color: #fff;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #ffb517;
+    height: 40px;
+    border-radius: 2px !important;
+    margin-top: 12px;
+    width: 144px;
+    margin-left: 12px;
+}
+
+.btn-orange-bg:hover{
+    color: #fff;
+    background-color: #cc8b00;
+}
+
+.ct-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0px 0px 20px;
+}
+
+.ct {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(182,182,182,0.74);
+    padding: 10px;
+    margin: 15px 0;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.form-control {
+    text-align : center;
+}

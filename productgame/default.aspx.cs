@@ -1,5 +1,6 @@
 ﻿using productgame.Class;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,7 +31,6 @@ namespace productgame
                 SqlDataReader reader = command.ExecuteReader();
                 this.DataList1.DataSource = reader;
                 this.DataList1.DataBind();
-
             }
             catch (SqlException ex)
             {
@@ -47,7 +47,20 @@ namespace productgame
             int i = Convert.ToInt32(Master.lblCountCart.Text) + 1;
             Master.lblCountCart.Text = Convert.ToString(i);
             Session["count"] = i;
-            Session[String.Format("Session{0}", i)] = ((LinkButton)sender).CommandArgument;
+            Session[String.Format("Session{0}", ((LinkButton)sender).CommandArgument)] = ((LinkButton)sender).CommandArgument;
+            if(Session["SessionID"] == null)
+            {
+                Session["SessionID"] = ((LinkButton)sender).CommandArgument;
+            }
+            else
+            {
+                Session["SessionID"] = Session["SessionID"].ToString() + ((LinkButton)sender).CommandArgument;
+            }
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/detail.aspx?id=" + ((LinkButton)sender).CommandArgument);
         }
     }
 }

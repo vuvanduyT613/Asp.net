@@ -99,16 +99,16 @@ namespace productgame.stylesheet
                     //check save infomation
                     if (checkbox.Checked == true) 
                     {
-                        ckEmail.Expires = DateTime.Now.AddMinutes(1);
-                        ckPass.Expires = DateTime.Now.AddMinutes(1);
+                        ckEmail.Expires = DateTime.Now.AddMinutes(20);
+                        ckPass.Expires = DateTime.Now.AddMinutes(20);
 
                         Session["Email"] = email;
                         Session["Date"] = DateTime.Now;
                     }
                     else 
                     {
-                        ckEmail.Expires = DateTime.Now.AddMinutes(-1);
-                        ckPass.Expires = DateTime.Now.AddMinutes(-1);
+                        ckEmail.Expires = DateTime.Now.AddMinutes(-20);
+                        ckPass.Expires = DateTime.Now.AddMinutes(-20);
                     }
                     Response.Cookies.Add(ckEmail);
                     Response.Cookies.Add(ckPass);

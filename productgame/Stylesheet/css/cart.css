@@ -1,0 +1,188 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Numans');
+
+body {
+}
+
+.space-row {
+    width: 100%;
+    height: 100%; 
+    margin: 12px 0px 12px 0px;
+}
+
+.text-wrap {
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.delete {
+    color: #cc0000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.delete:hover{
+    color: #cc0000;
+}
+
+.price {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.qlr {
+    display: -webkit-inline-box;
+    margin: 4% 0px 0px 25%;
+}
+
+    .qlr a {
+        background: url(../../IconImage/plus.png) 1px 1px no-repeat #f5f5f5;
+        display: inline-block;
+        height: 26px;
+        width: 26px;
+        position: relative;
+        text-indent: -9999px;
+        border: 1px solid #ccc;
+        transition: all .3s ease-in-out;
+        outline: 0;
+        opacity: .7;
+    }
+
+a.BtnMinus {
+    background-position: 4px -20px;
+}
+
+
+a.BtnPlus {
+    background-position: 3px 3px;
+}
+
+#input-quantity {
+    width: 46px;
+    height: 26px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0;
+}
+
+.label1 {
+    color: forestgreen;
+    margin-left : 2px;
+}
+
+.label1-red {
+    color: #e60000;
+    margin-left: 2px;
+}
+
+.head-bill{
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.content-bill{
+    width: 100%;
+    height: 100%;
+}
+
+.bill-price-text {
+    color: #919191;
+    font-size: 14px;
+    margin-left: 15px;
+    float: left;
+}
+
+.bill-price {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 15px;
+    float: right;
+}
+
+.bill-price-text-red {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 15px;
+    float: left;
+}
+
+.bill-price-red {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 15px;
+    float: right;
+}
+
+.btn-green-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #29b474;
+    color: #fff;
+    padding: 8px 0;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #29b474;
+    height: 40px;
+    border-radius: 2px !important;
+    margin: 14px 0px 10px 12px;
+    width: 95%;
+}
+
+.btn-green-bg:hover {
+    color: #fff;
+    background-color: #21915d;
+}
+
+.btn-none-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    color: #000;
+    padding: 8px 0;
+    cursor: pointer;
+    background-color: #fff;
+    height: 40px;
+    border-radius: 2px !important;
+    margin: 12px 0px 10px 12px;
+    width: 140px;
+    float: left;
+}
+
+.btn-none-bg:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+.form-button{
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.btn-blue-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #21beff;
+    color: #fff;
+    padding: 8px 0;
+    cursor: pointer;
+    background-color: #21beff;
+    height: 40px;
+    border-radius: 2px !important;
+    margin: 12px 0px 10px 12px;
+    width: 95px;
+    float: right;
+}
+
+.btn-blue-bg:hover {
+    color: #fff;
+    background-color: #00b3ff;
+}

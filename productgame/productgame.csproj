@@ -90,8 +90,14 @@
     <Content Include="App_Data\product_log.ldf">
       <DependentUpon>product.mdf</DependentUpon>
     </Content>
+    <Content Include="cart.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="detail.aspx" />
     <Content Include="forgotten.aspx" />
+    <Content Include="IconImage\item-icon-1.png" />
+    <Content Include="IconImage\item-icon-2.png" />
+    <Content Include="IconImage\item-icon-3.png" />
+    <Content Include="IconImage\plus.png" />
     <Content Include="Stylesheet\css\animate.css" />
     <Content Include="Stylesheet\css\bootstrap-grid.css" />
     <Content Include="Stylesheet\css\bootstrap-grid.min.css" />
@@ -99,18 +105,21 @@
     <Content Include="Stylesheet\css\bootstrap-reboot.min.css" />
     <Content Include="Stylesheet\css\bootstrap.css" />
     <Content Include="Stylesheet\css\bootstrap.min.css" />
+    <Content Include="Stylesheet\css\cart.css" />
     <Content Include="Stylesheet\css\common.css" />
-    <Content Include="Stylesheet\css\default.css" />
+    <Content Include="Stylesheet\css\defaults.css" />
+    <Content Include="Stylesheet\css\detailt.css" />
     <Content Include="Stylesheet\css\flaticons.css" />
     <Content Include="Stylesheet\css\font-awesome.min.css" />
     <Content Include="Stylesheet\css\forgotten.css" />
     <Content Include="Stylesheet\css\jquery-ui.min.css" />
-    <Content Include="Stylesheet\css\login.css" />
+    <Content Include="Stylesheet\css\logins.css" />
     <Content Include="Stylesheet\css\owl.carousel.min.css" />
+    <Content Include="Stylesheet\css\productc.css" />
     <Content Include="Stylesheet\css\register.css" />
     <Content Include="Stylesheet\css\sitemain.css" />
     <Content Include="Stylesheet\css\slicknav.min.css" />
-    <Content Include="Stylesheet\css\styles.css" />
+    <Content Include="Stylesheet\css\style.css" />
     <Content Include="Stylesheet\css\util.css" />
     <Content Include="Stylesheet\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Stylesheet\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -1816,6 +1825,7 @@
     <Content Include="Stylesheet\js\owl.carousel.min.js" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="Stylesheet\js\qlr.js" />
     <Content Include="Stylesheet\js\register.js" />
     <Content Include="Stylesheet\vendor\animate\animate.css" />
     <Content Include="Stylesheet\vendor\animsition\css\animsition.css" />
@@ -1850,6 +1860,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Class\connection.cs" />
     <Compile Include="Class\controlCookie.cs" />
     <Compile Include="Class\queryString.cs" />
@@ -1860,6 +1877,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="detail.aspx.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detail.aspx.designer.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="forgotten.aspx.cs">
       <DependentUpon>forgotten.aspx</DependentUpon>

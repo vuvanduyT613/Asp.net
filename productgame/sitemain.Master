@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/animate.css" />
-	<link rel="stylesheet" href="./Stylesheet/css/styles.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/style.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/sitemain.css"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -33,9 +33,9 @@
 					<div class="row">
 						<div class="col-lg-2 text-center text-lg-left">
 							<!-- logo -->
-							<a href="/site/" class="site-logo">
+                            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="site-logo" NavigateUrl="~/default.aspx">
 								<h3>SHOP TECH</h3>
-							</a>
+                            </asp:HyperLink>
 						</div>
 						<div class="col-xl-6 col-lg-5">
 							<div class="header-search-form">
@@ -66,13 +66,13 @@
 					<div class="container">
 						<!-- menu -->
 						<ul class="main-menu">
-							<li><a href="/site/home.php">Trang chủ</a></li>
+							<li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/">Trang chủ</asp:HyperLink></li>
 							<li><a href="/site/shopteach.php">Sản Phẩm</a></li>
 							<li><a href="#">Tips</a>
 								<ul class="sub-menu">
-									<li><a href="/site/home.php">Tip Windows</a></li>
-									<li><a href="/site/home.php">Tip Ubuntu</a></li>
-									<li><a href="/site/home.php">Tip Mac</a></li>
+									<li><a href="#">Tip Windows</a></li>
+									<li><a href="#">Tip Ubuntu</a></li>
+									<li><a href="#">Tip Mac</a></li>
 								</ul>
 							</li>
 							<li><a href="#">Trang Liên Hệ</a></li>
@@ -86,6 +86,7 @@
 		
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
+
 		<section class="footer-section">		
 			<div class="social-links-warp">
 				<div class="container">

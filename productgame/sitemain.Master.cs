@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GoogleApi.Entities.Maps.Geocoding;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -10,20 +12,23 @@ namespace productgame
 {
     public partial class sitemain : System.Web.UI.MasterPage
     {
+        
+        //ArrayList arr = new ArrayList();
+
         public static int one = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["email"] != null)
             {
                 this.lbl_email.Text = Request.QueryString["email"];
-                if(one == 0) 
+                if (one == 0)
                 {
                     Response.Write("<script>setTimeout(() => {alert('Đăng nhập thành công');}, 1500);</script>");
                 }
                 one = 1;
             }
 
-            if (Session["count"] != null) 
+            if (Session["count"] != null)
             {
                 this.lbl_countcart.Text = Session["count"].ToString();
             }
@@ -39,8 +44,8 @@ namespace productgame
         {
             if (Session["session"] != null)
             {
-                //Server.Transfer("");
-                Response.Write("<script>setTimeout(() => {alert('Mua hàng thành công');}, 1500);</script>");
+                Response.Redirect("~/cart.aspx");
+                //Response.Write("<script>setTimeout(() => {alert('Mua hàng thành công');}, 1500);</script>");
             }
             else 
             {

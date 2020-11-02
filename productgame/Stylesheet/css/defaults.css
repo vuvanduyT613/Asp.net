@@ -1,0 +1,13 @@
+﻿.banner-section {
+    margin-top : 100px;
+}
+
+.product-item {
+    width: 280px;
+    padding: 0px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+#LinkButton2 i {
+    padding-top: 8px;
+}

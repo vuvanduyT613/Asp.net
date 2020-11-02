@@ -16,8 +16,8 @@
 	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/animate.css" />
-    <link rel="stylesheet" href="./Stylesheet/css/login.css" />
-    <link rel="stylesheet" href="./Stylesheet/css/styles.css" />
+    <link rel="stylesheet" href="./Stylesheet/css/logins.css" />
+    <link rel="stylesheet" href="./Stylesheet/css/style.css" />
 
     <link rel="stylesheet" href="./Stylesheet/css/common.css">
     <title>Login</title>
@@ -90,21 +90,16 @@
                     <hr>
 
                     <div class="other-login">
-                      <p>Hoặc đăng nhập thông qua MXH</p>
-                      <br>
+                      <p style="text-align:center">Hoặc đăng nhập</p>
                       <div class="list-login">
-                        <asp:LinkButton ID="LinkButton1" runat="server"  class="login-fplus btn btn-info" 
-                            style ="background: #4267b2; border: #4267b2; margin: 0; padding-top: 13px;" OnClick="LinkButton1_Click">
-                            <span
-                            style="float: left;width: 48px;margin-left: -8px;border-right: 1px solid rgba(0, 0, 0, 0.2);">
+                        <asp:LinkButton ID="LinkButton1" runat="server"  class="login-fplus btn btn-info" OnClick="LinkButton1_Click">
+                            <span>
                             <i class="fab fa-facebook-f" style="font-size: 25px"></i>
                             </span>
                             Đăng nhập bằng Facebook
                         </asp:LinkButton>
-                        <asp:LinkButton ID="LinkButton2" runat="server" class="login-gplus btn btn-danger" 
-                            style="background: #e02f2f; border: #e02f2f; margin: 15px 0 0 0; padding-top: 13px;" OnClick="LinkButton2_Click">
-                            <span
-                            style="float: left;border-right: 1px solid rgba(0, 0, 0, 0.2);width: 43px;margin-left: -3px;">
+                        <asp:LinkButton ID="LinkButton2" runat="server" class="login-gplus btn btn-danger" OnClick="LinkButton2_Click">
+                            <span>
                             <i class="fab fa-google-plus-g" style="font-size: 25px"></i>
                             </span>
                             Đăng nhập bằng Google

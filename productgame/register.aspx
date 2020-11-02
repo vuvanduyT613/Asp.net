@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="./Stylesheet/css/jquery-ui.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/owl.carousel.min.css" />
 	<link rel="stylesheet" href="./Stylesheet/css/animate.css" />
-	<link rel="stylesheet" href="./Stylesheet/css/styles.css" />
+	<link rel="stylesheet" href="./Stylesheet/css/style.css" />
     <link rel="stylesheet" href="./Stylesheet/css/common.css">
     <script src="./Stylesheet/js/register.js" type="text/javascript"></script>
     <title>resgister</title>
