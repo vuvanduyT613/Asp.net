@@ -1,4 +1,5 @@
-﻿using productgame.Class;
+﻿using Org.BouncyCastle.Crypto;
+using productgame.Class;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,22 @@ namespace productgame
         DataTable dt = new DataTable();
         ArrayList arr = new ArrayList();
         connection cn = new connection();
+
+        //create class a object
+        public class productCount
+        {
+            string id, count;
+            public string Id
+            {
+                get { return id; }
+                set { this.id = value; }
+            }
+            public string Count {
+                get { return count;  }
+                set { this.count = value; }
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["SessionID"] == null)
@@ -41,34 +58,46 @@ namespace productgame
 
         protected void addColumDt(ArrayList s)
         {
-            ArrayList t = new ArrayList();
-            int count = 0;
-            int m = 0;
-            int n = 1;
-            for (int j = 0; j < s.Count; j++)
+            LinkedList<productCount> t = new LinkedList<productCount>();
+            for (int j = 0; j < s.Count-1; j++)
             {
+                int count = 1;
                 for (int k = j + 1; k < s.Count; k++)
                 {
-                    if (s[j] == s[k])
+                    if (Convert.ToInt32(s[k]) == Convert.ToInt32(s[j]))
                     {
-                        ++count;
+                        count++;
+                        s.RemoveAt(k);
                     }
-                    if (k == s.Count)
+                    if (count > 1)
                     {
-                        t.Add(s[j]);
-                        t.Add(count);
+                        productCount p = new productCount();
+                        p.Id = Convert.ToString(s[j]);
+                        p.Count = Convert.ToString(count);
+                        t.AddLast(p);
+                    }
+                    if (count == 1)
+                    {
+                        productCount p = new productCount();
+                        p.Id = Convert.ToString(s[j]);
+                        p.Count = "1";
+                        t.AddLast(p);
                     }
                 }
             }
             dt.Columns.Add("NewColumn", typeof(System.Int32));
-
             foreach (DataRow row in dt.Rows)
             {
-                if (Convert.ToInt32( row["ProductID"].ToString()) == Convert.ToInt32(t[m].ToString()))
+                foreach (productCount item in t)
                 {
-                    row["NewColumn"] = t[n];
-                    m += 2;
-                    n += 2;
+                    if (item.Id.Equals(row["ProductID"].ToString()))
+                    {
+                        row["NewColumn"] = item.Count;
+                    }
+                    else
+                    {
+                        row["NewColumn"] = "1";
+                    }
                 }
             }
         }
@@ -87,6 +116,7 @@ namespace productgame
                 string query = "SELECT * FROM Products WHERE ProductID = 0 " + subStr(arr);
                 SqlDataAdapter da = new SqlDataAdapter(query, ConfigurationManager.AppSettings["con"]);
                 da.Fill(dt);
+                addColumDt(arr);
                 this.DataList1.DataSource = dt;
                 this.DataList1.DataBind();
             }
@@ -101,11 +131,19 @@ namespace productgame
         protected int calculator(DataTable dt)
         {
             int sum = 0;
+            DataColumnCollection columns = dt.Columns;
             if (dt.Rows.Count > 0)
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    sum = sum + Convert.ToInt32(row["Prince"].ToString());
+                    try
+                    {
+                        sum = sum + (Convert.ToInt32(row["Prince"].ToString()) * Convert.ToInt32(row["NewColumn"].ToString()));
+                    }
+                    catch
+                    {
+                        sum = sum + (Convert.ToInt32(row["Prince"].ToString()));
+                    }
                 }
             }
             return sum;
@@ -117,7 +155,10 @@ namespace productgame
             foreach (DataRow row in dt.Rows)
             {
                 // If this row is offensive then
-                row.Delete();
+                if(Convert.ToInt32(((LinkButton)sender).CommandArgument) == Convert.ToInt32( row["productID"].ToString()))
+                {
+                    row.Delete();
+                }
             }
             dt.AcceptChanges(); 
         }
@@ -129,22 +170,29 @@ namespace productgame
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO Bills (NemberID,TotalProduct,TotalPrince) VALUES (" + Session["NemberID"].ToString() + "," + arr.Count + "," + this.lbl_prince_red.Text + ");";
+            string query = "INSERT INTO Bills (NemberID,TotalProduct,TotalPrince) VALUES (" + Session["NemberID"].ToString() + ",'" + arr.Count + "','" + this.lbl_prince_red.Text + "')";
             int result = cn.Handle(query);
             if (result > 0)
             {
                 Response.Write("<script>setTimeout(() => {alert('Thanh Toán thàng công');}, 1500);</script>");
             }
+            else 
+            {
+                Response.Write("<script>setTimeout(() => {alert('Giao dịch thất bại');}, 1500);</script>");
+            }
         }
 
-        protected void LinkButton5_Click(object sender, EventArgs e)
+      /*  protected void LinkButton5_Click(object sender, EventArgs e)
         {
-            
+            foreach (DataRow row in dt.Rows)
+            {
+                if (Convert.ToInt32(row["productID"].ToString()) == Convert.ToInt32(((LinkButton)sender).CommandArgument))
+                {
+                   int tmp = Convert.ToInt32(row["NewColumn"].ToString()) - 1;
+                   row["NewColumn"] = Convert.ToString(tmp);
+                }
+            }
         }
-
-        protected void LinkButton6_Click(object sender, EventArgs e)
-        {
-            
-        }
+        */
     }
 }

@@ -9,7 +9,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <asp:DataList ID="DataList1" runat="server">
                     <ItemTemplate>
-                        <div class="row" style="border : 1px solid #d9d9d9">  
+                        <div class="row" style="border : 1px solid #d9d9d9;">  
                             <div class="col-lg-3 col-md-3 col-sm-3">
                                 <div class="space-row">
                                     <img src='<%#"./Stylesheet/img/"+ Eval("ImageSource") %>' />
@@ -19,7 +19,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-3">
                                 <div class="space-row">
                                     <asp:LinkButton ID="LinkButton1" runat="server">
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProductName") %>'  ></asp:Label>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label>
                                     </asp:LinkButton>
                                     <div class="text-wrap">
                                         <div class="text">Trạng thái :</div>
@@ -40,9 +40,7 @@
                             <div class="col-lg-2 col-md-2 col-sm-2">
                                 <div class="space-row">
                                     <div class="qlr">
-                                        <asp:LinkButton ID="LinkButton5" runat="server" CssClass="BtnMinus" OnClick="LinkButton5_Click"></asp:LinkButton>
-                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Text='1' Width="50px" Height="26px" style="text-align:center"></asp:TextBox>
-                                        <asp:LinkButton ID="LinkButton6" runat="server" CssClass="BtnPlus" OnClick="LinkButton6_Click"></asp:LinkButton>
+                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Text='<%# Eval("NewColumn") %>' Width="50px" Height="26px" style="text-align:center"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>

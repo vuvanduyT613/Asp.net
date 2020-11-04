@@ -18,7 +18,7 @@ namespace productgame
         public static int one = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["email"] != null || Session["Email"] != null)
+            if (Request.QueryString["email"] != null || Session["Email"] != null )
             {
                 this.lbl_email.Text = Session["Email"].ToString();
                 if (one == 0)
@@ -42,7 +42,7 @@ namespace productgame
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            if (Session["session"] != null || Request.Cookies["email"] != null)
+            if (Session["session"] != null)
             {
                 Response.Redirect("~/cart.aspx");
             }

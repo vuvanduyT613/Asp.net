@@ -47,7 +47,7 @@ namespace productgame
             int i = Convert.ToInt32(Master.lblCountCart.Text) + 1;
             Master.lblCountCart.Text = Convert.ToString(i);
             Session["count"] = i;
-            Session[String.Format("Session{0}", ((LinkButton)sender).CommandArgument)] = ((LinkButton)sender).CommandArgument;
+           /* Session[String.Format("Session{0}", ((LinkButton)sender).CommandArgument)] = ((LinkButton)sender).CommandArgument;*/
             if(Session["SessionID"] == null)
             {
                 Session["SessionID"] = ((LinkButton)sender).CommandArgument;
