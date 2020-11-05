@@ -40,7 +40,9 @@
                             <div class="col-lg-2 col-md-2 col-sm-2">
                                 <div class="space-row">
                                     <div class="qlr">
+                                        <asp:LinkButton ID="LinkButton5" runat="server" CssClass="BtnMinus" OnClick="LinkButton5_Click" CommandArgument='<%# Eval("ProductID") %>'></asp:LinkButton>
                                         <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Text='<%# Eval("NewColumn") %>' Width="50px" Height="26px" style="text-align:center"></asp:TextBox>
+                                        <asp:LinkButton ID="LinkButton6" runat="server" CssClass="BtnPlus" OnClick="LinkButton6_Click" CommandArgument='<%# Eval("ProductID") %>'></asp:LinkButton>
                                     </div>
                                 </div>
                             </div>

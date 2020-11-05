@@ -1,4 +1,5 @@
 ﻿using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Utilities.Encoders;
 using productgame.Class;
 using System;
 using System.Collections;
@@ -18,7 +19,8 @@ namespace productgame
         DataTable dt = new DataTable();
         ArrayList arr = new ArrayList();
         connection cn = new connection();
-
+        LinkedList<productCount> t = new LinkedList<productCount>();
+        string sessionPriveous = null;
         //create class a object
         public class productCount
         {
@@ -42,8 +44,16 @@ namespace productgame
             }
             else 
             {
+                sessionPriveous = Session["SessionID"].ToString();
                 fetchData();
                 //addColumDt(arr);
+            }
+            if (!sessionPriveous.Equals(Session["SessionID"].ToString())) {
+                string sessionNext = Session["SessionID"].ToString();
+                for (int i = 0; i < sessionNext.Length; i++)
+                {
+                    arr.Add(sessionNext[i]);
+                }
             }
         }
 
@@ -58,15 +68,14 @@ namespace productgame
 
         protected void addColumDt(ArrayList s)
         {
-            LinkedList<productCount> t = new LinkedList<productCount>();
             for (int j = 0; j < s.Count-1; j++)
             {
                 int count = 1;
                 for (int k = j + 1; k < s.Count; k++)
                 {
-                    if (Convert.ToInt32(s[k]) == Convert.ToInt32(s[j]))
+                    if (Convert.ToInt32(s[j]) == Convert.ToInt32(s[k]))
                     {
-                        count++;
+                        ++count;
                         s.RemoveAt(k);
                     }
                     if (count > 1)
@@ -151,16 +160,29 @@ namespace productgame
         
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            dt.AcceptChanges();
-            foreach (DataRow row in dt.Rows)
+           /* foreach (DataRow row in dt.Rows)
             {
                 // If this row is offensive then
-                if(Convert.ToInt32(((LinkButton)sender).CommandArgument) == Convert.ToInt32( row["productID"].ToString()))
+                if (Convert.ToInt32(row["productID"].ToString()).Equals(Convert.ToInt32(((LinkButton)sender).CommandArgument)))
                 {
+                    string hex = null;
                     row.Delete();
+                    for (int i = 0; i < arr.Count; i++)
+                    {
+                        if (Convert.ToInt32(((LinkButton)sender).CommandArgument).Equals(Convert.ToInt32(arr[i].ToString()))) 
+                        {
+                            arr.RemoveAt(i);
+                        }
+                        else
+                        {
+                            hex += arr[i].ToString();
+                        }
+                    }
+                    Session["SessionID"] = hex;
                 }
             }
-            dt.AcceptChanges(); 
+            dt.AcceptChanges();
+            Server.Transfer("~/cart.aspx");*/
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
@@ -182,17 +204,21 @@ namespace productgame
             }
         }
 
-      /*  protected void LinkButton5_Click(object sender, EventArgs e)
+        protected void LinkButton5_Click(object sender, EventArgs e)
         {
             foreach (DataRow row in dt.Rows)
             {
                 if (Convert.ToInt32(row["productID"].ToString()) == Convert.ToInt32(((LinkButton)sender).CommandArgument))
                 {
-                   int tmp = Convert.ToInt32(row["NewColumn"].ToString()) - 1;
-                   row["NewColumn"] = Convert.ToString(tmp);
+                    int tmp = Convert.ToInt32(row["NewColumn"].ToString()) - 1;
+                    row["NewColumn"] = Convert.ToString(tmp);
                 }
             }
         }
-        */
+
+        protected void LinkButton6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
